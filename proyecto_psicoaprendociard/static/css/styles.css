@@ -1,0 +1,20 @@
+/* Estilos para la imagen de cabecera */
+.full-width-image {
+    width: 100%; /* Asegura que la imagen cubra todo el ancho del contenedor */
+    height: 500px; /* Establece una altura fija de 200px */
+    object-fit: cover; /* Asegura que la imagen cubra el área especificada sin distorsión */
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.container-fluid, .navbar, .img-fluid {
+    margin: 0;
+    padding: 0;
+}
+.navbar-nav .nav-item {
+    margin: 0;
+}
+.navbar {
+    padding: 0;
+}

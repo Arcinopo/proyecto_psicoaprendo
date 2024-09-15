@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recursos educativos para niños con necesidades especiales.">
+    <meta name="keywords" content="educación, necesidades especiales, aprendizaje, niños, recursos educativos, inclusión">
+    <title>Psico-Aprendo CIARD</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Tu archivo CSS -->
+</head>
+<body class="bg-warning-subtle">
+
+    <header>
+        <div class="container-fluid">
+            <img src="{% static 'images/fondo_principal.jpeg' %}" alt="Fondo Principal de Psico-Aprendo CIARD" class="img-fluid full-width-image" loading="lazy">
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid bg-warning">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/icono-brain.png' %}" alt="Logo de Psico-Aprendo CIARD"> Psico-Aprendo CIARD
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Números y Letras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Colores y Figuras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Cuentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Sobre nosotros</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-danger" type="submit">Buscar</button>
+                </form>                
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container mt-4 text-center">
+            <p> 
+                En Psico-Aprendo CIARD, ofrecemos recursos educativos diseñados especialmente para ayudar a los niños
+                con necesidades educativas especiales a aprender y crecer en un entorno inclusivo y estimulante. 
+                Explora nuestras secciones para descubrir números, colores, figuras y cuentos, todo adaptado para hacer
+                el aprendizaje divertido y efectivo.
+            </p>
+        </div>
+
+        <div class="container mt-4">
+            <h2>Misión</h2>
+            <p>Nuestra misión es proporcionar recursos educativos inclusivos y accesibles que apoyen el desarrollo integral de niños con necesidades educativas especiales. Nos comprometemos a crear un entorno de aprendizaje estimulante y adaptado, donde cada niño pueda alcanzar su máximo potencial a través de herramientas innovadoras y pedagógicas.</p>
+        </div>
+
+        <div class="container mt-4">
+            <h2>Visión</h2>
+            <p>Nuestra visión es ser líderes en la educación inclusiva, reconocidos por nuestra dedicación a la excelencia y la innovación en el apoyo a niños con necesidades educativas especiales. Aspiramos a construir una comunidad educativa donde la diversidad sea celebrada y cada niño tenga la oportunidad de aprender y crecer en un entorno seguro y enriquecedor.</p>
+        </div>
+
+        <div class="container mt-4">
+            <h2>Galería de Fotos</h2>
+            <div class="row">
+                <!-- Aquí puedes añadir tus fotos -->
+                <div class="col-md-4">
+                    <img src="{% static 'images/foto1.jpg' %}" alt="Descripción de la foto 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'images/foto2.jpg' %}" alt="Descripción de la foto 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'images/foto3.jpg' %}" alt="Descripción de la foto 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="container mt-4">
+        <h2>Lo Que Dicen Nuestros Usuarios</h2>
+        <blockquote class="blockquote">
+            <p>"Psico-Aprendo CIARD ha sido una herramienta increíble para mi hijo. Los recursos son educativos y atractivos."</p>
+            <footer class="blockquote-footer">Ana Pérez, Madre de un estudiante</footer>
+        </blockquote>
+    </div>
+    
+    <footer>
+        <div class="container mt-4">
+            <h2>Contáctanos</h2>
+            <p>Para cualquier consulta o información adicional, no dudes en <a href="mailto:contacto@psicoaprendociard.com">enviarnos un correo</a>.</p>
+        </div>
+    </footer>
+    
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
