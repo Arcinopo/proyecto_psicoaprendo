@@ -8,7 +8,7 @@
     <title>{% block title %}Psico-Aprendo CIARD{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/all.min.css' %}">-->
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!--No carga bien-->
 
@@ -17,23 +17,67 @@
             padding: 0;
             margin: 0;
         }
-        .main-image {
-            width: 100%;
-            height: 450px; 
-            object-fit: cover; 
-        }
+        .alfanumerico-btn {
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente para que sea más flexible */
+    width: 60px; /* Ajusta el tamaño del botón */
+    height: 60px; /* Ajusta el tamaño del botón */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px; /* Ajusta el margen para que los botones no se amontonen */
+}
+
+@media (min-width: 768px) {
+    .alfanumerico-btn {
+        font-size: 2rem; /* Tamaño de fuente más grande para pantallas medianas y grandes */
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.alfanumerico-btn.vowel {
+    background-color: #ffcc00; /* Color diferente para las vocales */
+    color: #000;
+}
+
     </style>
 
 
 </head>
 <body>
     <div class="container-fluid">
-        <img src="{% static 'images/fondo_principal.jpeg' %}" alt="Imagen Principal" class="img-fluid main-image">
+        <div id="carousel-psico" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel-psico" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel-psico" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel-psico" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/psicoaprendo1.png' %}" class="d-block w-100 main-image" alt="Imagen principal 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/psicoaprendo2.png' %}" class="d-block w-100 main-image" alt="Imagen principal 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/principal3.png' %}" class="d-block w-100 main-image" alt="Imagen principal 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-psico" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-psico" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
-    <!-- Navbar -->
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary row">
         <div class="container-fluid bg-warning">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/icono-brain.png' %}" alt="Logo de Psico-Aprendo CIARD"> Psico-Aprendo CIARD
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,16 +86,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Números y Letras</a>
+                        <a class="nav-link active" href="{% url 'alfanumerico' %}" aria-label="Números y Letras">Números y Letras</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Colores y Figuras</a>
+                        <a class="nav-link active" href="{% url 'figuras_colores' %}" aria-label="Colores y Figuras">Colores y Figuras</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Cuentos</a>
+                        <a class="nav-link active" href="{% url 'cuentos' %}" aria-label="Cuentos">Cuentos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Sobre nosotros</a>
+                        <a class="nav-link active" href="{% url 'contacto' %}" aria-label="Sobre nosotros">Sobre nosotros</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -62,13 +106,50 @@
         </div>
     </nav>
 
-    <!-- Main content -->
     <div class="container-fluid">
         {% block content %}
         <!-- Contenido de la página aquí -->
         {% endblock %}
+
+        <footer class="bg-dark text-white mt-5">
+            <div class="container-fluid py-4">
+                <div class="row">
+                    <!-- About Section -->
+                    <div class="col-md-4">
+                        <h5>Sobre Psico-Aprendo CIARD</h5>
+                        <p>Proporcionamos recursos educativos inclusivos y accesibles para apoyar el desarrollo integral de niños con necesidades educativas especiales.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Enlaces Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Inicio</a></li>
+                            <li><a href="#" class="text-white">Números y Letras</a></li>
+                            <li><a href="#" class="text-white">Colores y Figuras</a></li>
+                            <li><a href="#" class="text-white">Cuentos</a></li>
+                            <li><a href="#" class="text-white">Sobre nosotros</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contacto</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-envelope"></i> mi pagina</li>
+                            <li><i class="fas fa-phone"></i> +58 xxxxxxxxx</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Haticos por arriba, Maracaibo, Venezuela</li>
+                        </ul>
+                        <h5>Síguenos</h5>
+                        <a href="https://www.facebook.com/tu_pagina" class="text-white me-2" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.twitter.com/tu_pagina" class="text-white me-2" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/tu_pagina" class="text-white" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <p>© 2024 Psico-Aprendo CIARD. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
+

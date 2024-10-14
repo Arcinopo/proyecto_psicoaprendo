@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-sm-12 mb-4">
+            <h2>Alfabeto</h2>
+            <div class="d-flex flex-wrap justify-content-center">
+                {% for char in 'ABCDEF' %}
+                <button class="btn btn-primary m-2 alfanumerico-btn {% if char in 'AEIOU' %}vowel{% endif %}" data-char="{{ char }}">
+                    {{ char }}
+                </button>
+                {% endfor %}
+                <div class="w-100"></div>
+                {% for char in 'GHIJKL' %}
+                <button class="btn btn-primary m-2 alfanumerico-btn {% if char in 'AEIOU' %}vowel{% endif %}" data-char="{{ char }}">
+                    {{ char }}
+                </button>
+                {% endfor %}
+                <div class="w-100"></div>
+                {% for char in 'MNÑOPQ' %}
+                <button class="btn btn-primary m-2 alfanumerico-btn {% if char in 'AEIOU' %}vowel{% endif %}" data-char="{{ char }}">
+                    {{ char }}
+                </button>
+                {% endfor %}
+                <div class="w-100"></div>
+                {% for char in 'RSTUVW' %}
+                <button class="btn btn-primary m-2 alfanumerico-btn {% if char in 'AEIOU' %}vowel{% endif %}" data-char="{{ char }}">
+                    {{ char }}
+                </button>
+                {% endfor %}
+                <div class="w-100"></div>
+                {% for char in 'XYZ' %}
+                <button class="btn btn-primary m-2 alfanumerico-btn {% if char in 'AEIOU' %}vowel{% endif %}" data-char="{{ char }}">
+                    {{ char }}
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-10 col-sm-12 mb-4">
+            <h2>Números</h2>
+            <div class="d-flex flex-wrap justify-content-center">
+                {% for char in '123456789' %}
+                <button class="btn btn-primary m-2 alfanumerico-btn" data-char="{{ char }}">
+                    {{ char }}
+                </button>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                <div class="w-100"></div>
+                {% endif %}
+                {% endfor %}
+                <div class="w-100"></div>
+                <button class="btn btn-primary m-2 alfanumerico-btn" data-char="0">0</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/alfanumerico.js' %}"></script>
+{% endblock %}
