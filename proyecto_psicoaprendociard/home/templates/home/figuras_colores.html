@@ -2,5 +2,221 @@
 {% load static %}
 
 {% block content %}
-<h1>figuras y colores</h1>
+<div class="container mt-4">
+    <h1 class="text-center">Figuras y Colores</h1>
+    <p class="text-center">Explora las diferentes figuras y colores. Haz clic en cada tarjeta para aprender más.</p>
+    
+    <!-- Sección de Colores -->
+    <h2 class="text-center mt-5">Colores</h2>
+    <div class="row">
+        <!-- Colores Básicos -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="rojo" style="background-color: #FF5733; color: white; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Rojo</h3>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="azul" style="background-color: #3498db; color: white; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Azul</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="verde" style="background-color: #2ecc71; color: white; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Verde</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="amarillo" style="background-color: #f1c40f; color: black; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Amarillo</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="rosa" style="background-color: #ff69b4; color: white; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Rosa</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="blanco" style="background-color: #ffffff; color: black; border: 1px solid #ddd; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Blanco</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="negro" style="background-color: #000000; color: white; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Negro</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="naranja" style="background-color: #f39c12; color: white; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Naranja</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card color-card" data-color="morado" style="background-color: #8e44ad; color: white; border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Morado</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Figuras Geométricas -->
+    <h2 class="text-center mt-5">Figuras Geométricas</h2>
+    <div class="row">
+        <!-- Figuras Básicas -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="circulo" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Círculo</h3>
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="40" fill="#3498db" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="cuadrado" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Cuadrado</h3>
+                    <svg width="100" height="100">
+                        <rect width="80" height="80" x="10" y="10" fill="#2ecc71" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="triangulo" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Triángulo</h3>
+                    <svg width="100" height="100">
+                        <polygon points="50,15 90,85 10,85" fill="#f1c40f" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="rectangulo" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Rectángulo</h3>
+                    <svg width="100" height="60">
+                        <rect width="80" height="40" x="10" y="10" fill="#FF5733" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="ovalo" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Óvalo</h3>
+                    <svg width="100" height="60">
+                        <ellipse cx="50" cy="30" rx="40" ry="20" fill="#ff69b4" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="pentagono" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Pentágono</h3>
+                    <svg width="100" height="100">
+                        <polygon points="50,15 85,50 70,85 30,85 15,50" fill="#8e44ad" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="hexagono" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Hexágono</h3>
+                    <svg width="100" height="100">
+                        <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="#e67e22" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="estrella" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Estrella</h3>
+                    <svg width="100" height="100">
+                        <polygon points="50,15 61,35 85,35 67,50 75,75 50,60 25,75 33,50 15,35 39,35" fill="#f39c12" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card figure-card" data-figure="trapecio" style="border-radius: 15px; height: 150px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Trapecio</h3>
+                    <svg width="100" height="100">
+                        <polygon points="30,85 70,85 85,50 15,50" fill="#c0392b" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Reproduce sonido para los colores
+    const colorCards = document.querySelectorAll('.color-card');
+    colorCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const color = card.getAttribute('data-color');
+            const audioPath = `/static/sounds/${color}.mp3`;
+            const audio = new Audio(audioPath);
+            audio.play().catch(error => {
+                console.error(`Error al reproducir el sonido para el color ${color}:`, error);
+            });
+        });
+    });
+
+    // Reproduce sonido para las figuras
+    const figureCards = document.querySelectorAll('.figure-card');
+    figureCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const figure = card.getAttribute('data-figure');
+            const audioPath = `/static/sounds/${figure}.mp3`;
+            const audio = new Audio(audioPath);
+            audio.play().catch(error => {
+                console.error(`Error al reproducir el sonido para la figura ${figure}:`, error);
+            });
+        });
+    });
+});
+</script>
 {% endblock %}
