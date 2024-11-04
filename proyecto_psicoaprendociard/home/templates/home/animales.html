@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h1>Animales</h1>
+    <p>Haz clic en la imagen para escuchar el sonido del animal y en el nombre para escuchar su pronunciación.</p>
+
+    <div class="row justify-content-center">
+        {% for animal in animales %}
+        <div class="col-md-4 col-sm-6 mb-4">
+            <!-- Imagen del animal con el sonido real -->
+            <img src="{% static animal.imagen %}" alt="{{ animal.nombre }}" 
+                 data-sound="{% static animal.sonido %}" 
+                 onclick="playSound(this)" 
+                 style="width: 100%; border-radius: 10px; cursor: pointer;">
+            <!-- Nombre del animal con el sonido de la pronunciación -->
+            <h3 data-name-sound="{% static animal.nombre_sonido %}" onclick="playNameSound(this)">
+                {{ animal.nombre|capfirst }}
+            </h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

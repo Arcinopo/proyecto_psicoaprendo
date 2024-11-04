@@ -120,6 +120,9 @@
                         <a class="nav-link active" href="{% url 'figuras_colores' %}" aria-label="Colores y Figuras">Colores y Figuras</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'animales' %}" aria-label="Animales">Animales</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="{% url 'cuentos' %}" aria-label="Cuentos">Cuentos</a>
                     </li>
                     <li class="nav-item">
@@ -177,7 +180,75 @@
         </footer>
     </div>
 
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script><script>
+        // Reproduce el sonido de letras y números
+        document.addEventListener('DOMContentLoaded', function() {
+            // Selecciona todos los botones de letras y números
+            const buttons = document.querySelectorAll('.alfanumerico-btn');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const char = this.getAttribute('data-char').toLowerCase();
+                    const audioPath = `/static/sounds/${char}.mp3`;
+                    const audio = new Audio(audioPath);
+                    
+                    audio.play().catch(error => {
+                        console.error(`Error al reproducir el sonido para "${char}":`, error);
+                        alert(`No se pudo reproducir el sonido para "${char}".`);
+                    });
+                });
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // Reproduce sonido para los colores
+    const colorCards = document.querySelectorAll('.color-card');
+    colorCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const color = card.getAttribute('data-color');
+            const audioPath = `/static/sounds/${color}.mp3`;
+            const audio = new Audio(audioPath);
+            audio.play().catch(error => {
+                console.error(`Error al reproducir el sonido para el color ${color}:`, error);
+            });
+        });
+    });
+
+    // Reproduce sonido para las figuras
+    const figureCards = document.querySelectorAll('.figure-card');
+    figureCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const figure = card.getAttribute('data-figure');
+            const audioPath = `/static/sounds/${figure}.mp3`;
+            const audio = new Audio(audioPath);
+            audio.play().catch(error => {
+                console.error(`Error al reproducir el sonido para la figura ${figure}:`, error);
+            });
+        });
+    });
+});
+
+// funcion para generar el sonido del animal
+function playSound(element) {
+    const soundPath = element.getAttribute('data-sound');
+    const audio = new Audio(soundPath);
+    
+    audio.play().catch(error => {
+        console.error(`Error al reproducir el sonido del animal:`, error);
+    });
+}
+
+// funcion para generar el sonido de su pronunciacion
+function playNameSound(element) {
+    const nameSoundPath = element.getAttribute('data-name-sound');
+    const audio = new Audio(nameSoundPath);
+    
+    audio.play().catch(error => {
+        console.error(`Error al reproducir la pronunciación del nombre:`, error);
+    });
+}
+        </script>
 </body>
 </html>
 

@@ -10,11 +10,10 @@
     <h2 class="text-center mt-5">Alfabeto</h2>
     <div class="row justify-content-center">
         <div class="d-flex flex-wrap justify-content-center">
-            {% for char in 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ' %}
-            <button class="btn alfanumerico-btn {% if char in 'AEIOUÑ' %}vowel{% else %}consonant{% endif %}" 
+            {% for char in 'abcdefghijklmnñopqrstuvwxyz' %}
+            <button class="btn alfanumerico-btn {% if char in 'aeiouñ' %}vowel{% else %}consonant{% endif %}" 
                     data-char="{{ char }}" 
-                    style="width: 100px; height: 100px; border-radius: 20px; margin: 8px; font-size: 2rem; color: white; 
-                           background-color: {% if char in 'AEIOUÑ' %}#f39c12{% else %}#3498db{% endif %};">
+                    style="width: 100px; height: 100px; border-radius: 20px; margin: 8px; font-size: 2rem; color: white;">
                 {{ char }}
             </button>
             {% if forloop.counter|divisibleby:9 and not forloop.last %}
@@ -62,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             audio.play().catch(error => {
                 console.error(`Error al reproducir el sonido para "${char}":`, error);
+                alert(`No se pudo reproducir el sonido para "${char}".`);
             });
         });
     });

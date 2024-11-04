@@ -188,35 +188,3 @@
     </div>
 </div>
 {% endblock %}
-
-{% block scripts %}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Reproduce sonido para los colores
-    const colorCards = document.querySelectorAll('.color-card');
-    colorCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const color = card.getAttribute('data-color');
-            const audioPath = `/static/sounds/${color}.mp3`;
-            const audio = new Audio(audioPath);
-            audio.play().catch(error => {
-                console.error(`Error al reproducir el sonido para el color ${color}:`, error);
-            });
-        });
-    });
-
-    // Reproduce sonido para las figuras
-    const figureCards = document.querySelectorAll('.figure-card');
-    figureCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const figure = card.getAttribute('data-figure');
-            const audioPath = `/static/sounds/${figure}.mp3`;
-            const audio = new Audio(audioPath);
-            audio.play().catch(error => {
-                console.error(`Error al reproducir el sonido para la figura ${figure}:`, error);
-            });
-        });
-    });
-});
-</script>
-{% endblock %}
