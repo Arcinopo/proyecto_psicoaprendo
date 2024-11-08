@@ -1,7 +1,13 @@
 
 from django import forms
+from .models import Estudiante, Profesor
 
-class ContactoForm(forms.Form):
-    nombre = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    mensaje = forms.CharField(widget=forms.Textarea)
+class EstudianteForm(forms.ModelForm):
+    class Meta:
+        model = Estudiante
+        fields = ['nombre', 'edad']
+
+class ProfesorForm(forms.ModelForm):
+    class Meta:
+        model = Profesor
+        fields = ['especialidad', 'telefono']

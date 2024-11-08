@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+from .forms import CustomUserCreationForm
 # Create your views here.
 def login_view(request):
     if request.method == "POST":
@@ -18,14 +18,14 @@ def login_view(request):
 
 def registro_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+
             login(request, user)
             messages.success(request, 'Registro exitoso. ¡Bienvenido!')
-            return redirect('home')
-        else:
-            messages.error(request, 'Por favor, corrige los errores a continuación.')
+            return redirect('home')  
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'autenticacion/registro.html', {'form': form})
+
