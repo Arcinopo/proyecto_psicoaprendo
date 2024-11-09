@@ -11,3 +11,6 @@ class ProfesorForm(forms.ModelForm):
     class Meta:
         model = Profesor
         fields = ['especialidad', 'telefono']
+
+class SeleccionarEstudianteForm(forms.Form):
+    estudiante = forms.ModelChoiceField(queryset=Estudiante.objects.all(), label="Seleccione el estudiante")

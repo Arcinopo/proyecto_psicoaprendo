@@ -10,4 +10,5 @@ def crear_perfil_profesor(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def guardar_perfil_profesor(sender, instance, **kwargs):
-    instance.profesor.save()
+    if hasattr(instance, 'profesor'):
+        instance.profesor.save()

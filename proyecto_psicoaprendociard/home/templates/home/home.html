@@ -10,56 +10,50 @@
     </p>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-sm-12 text-center">
+<!-- Sección de Misión y Visión -->
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4 col-sm-12">
             <h2>Misión</h2>
             <p>
-                En Psico-Aprendo CIARD, nuestra misión es proporcionar recursos educativos
-                inclusivos y accesibles que apoyen el desarrollo integral de niños con 
-                necesidades educativas especiales. Nos comprometemos a crear un entorno 
-                de aprendizaje estimulante y seguro, donde cada niño pueda alcanzar su 
-                máximo potencial a través de métodos pedagógicos innovadores y personalizados. 
-                Trabajamos en colaboración con familias, educadores y profesionales para fomentar 
-                una comunidad educativa inclusiva y solidaria.
+                Nuestra misión es proporcionar recursos educativos inclusivos que apoyen el desarrollo de niños con necesidades educativas especiales en un entorno seguro y estimulante.
             </p>
         </div>
 
-        <div class="col-md-6 col-sm-12 text-center">
+        <div class="col-md-4 col-sm-12">
             <h2>Visión</h2>
             <p>
-                Nuestra visión es ser líderes en la educación inclusiva, reconocidos por nuestra
-                 dedicación a la excelencia y la innovación en el apoyo a niños con necesidades 
-                 educativas especiales. Aspiramos a transformar la educación, promoviendo
-                  la igualdad de oportunidades y el respeto por la diversidad. Imaginamos un 
-                  futuro donde todos los niños, independientemente de sus capacidades, puedan aprender,
-                   crecer y prosperar en un entorno que valora y celebra sus diferencias.
+                Aspiramos a ser líderes en educación inclusiva, transformando la enseñanza con igualdad de oportunidades y respeto a la diversidad.
+            </p>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+            <h2>Valores</h2>
+            <p>
+                En Psico-Aprendo CIARD, valoramos la inclusión, la innovación y la colaboración con familias y educadores para crear una comunidad de aprendizaje.
             </p>
         </div>
     </div>
 </div>
 
+<!-- Galería de Fotos -->
 <div class="container mt-4">
-    <h2>Galería de Fotos</h2>
+    <h2 class="text-center">Galería de Fotos</h2>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <!-- Agrega más botones aquí si tienes más imágenes -->
+            {% for i in imagenes %}
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+            {% endfor %}
         </div>
+
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'images/galeria1.png' %}" class="d-block w-100" alt="Descripción de la foto 1" style="height: 400px;">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/galeria2.png' %}" class="d-block w-100" alt="Descripción de la foto 2" style="height: 400px;">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/galeria3.png' %}" class="d-block w-100" alt="Descripción de la foto 3" style="height: 400px;">
-            </div>
-            <!-- Agrega más divs de carousel-item aquí si tienes más imágenes -->
+            {% for imagen in imagenes %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img src="{% static 'images/'|add:imagen %}" class="d-block w-100" alt="Imagen {{ forloop.counter }}" style="height: 400px;">
+                </div>
+            {% endfor %}
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -69,6 +63,38 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+</div>
+
+<!-- Testimonios -->
+<div class="container mt-5">
+    <h2 class="text-center">Testimonios</h2>
+    <div class="row text-center">
+        <div class="col-md-4 col-sm-12">
+            <blockquote>
+                <p>"Psico-Aprendo CIARD ha sido una herramienta invaluable para el aprendizaje de nuestro hijo. Estamos muy agradecidos."</p>
+                <footer>— Familia Rodríguez</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <blockquote>
+                <p>"La plataforma es fácil de usar y ofrece una gran variedad de recursos. La mejor herramienta educativa que hemos probado."</p>
+                <footer>— Sra. Gómez, educadora</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <blockquote>
+                <p>"Psico-Aprendo CIARD hace que el aprendizaje sea divertido y accesible para todos los niños. ¡Muy recomendable!"</p>
+                <footer>— Sr. Pérez, padre</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de Contacto -->
+<div class="container mt-5 text-center">
+    <h2>Contáctanos</h2>
+    <p>Si tienes alguna consulta o necesitas ayuda, no dudes en contactarnos.</p>
+    <a href="{% url 'contacto' %}" class="btn btn-primary">Contactar</a>
 </div>
 
 {% endblock %}

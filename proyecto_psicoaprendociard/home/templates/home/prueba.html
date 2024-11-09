@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg p-4" style="max-width: 600px; width: 100%; border-radius: 15px;">
+        <h2 class="text-center">Realizar Prueba para Estudiantes</h2>
+
+        {% if not estudiante %}
+        <div id="seleccionar-estudiante" class="my-4">
+            <h4 class="text-center">Seleccionar Estudiante</h4>
+            <form method="post" class="text-center">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-warning mt-3 w-100">Iniciar Prueba</button>
+            </form>
+        </div>
+        {% else %}
+        <div id="realizar-prueba">
+            <h4 class="text-center mb-3">Prueba para {{ estudiante.nombre }}</h4>
+            <p class="text-center"><strong>Tipo de Prueba:</strong> {{ tipo_prueba }}</p>
+
+            {% if tipo_prueba == "Sonido" %}
+                <p class="text-center">Escucha el sonido y selecciona la respuesta correcta:</p>
+                <audio controls class="w-100">
+                    <source src="{{ archivo_prueba }}" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            {% elif tipo_prueba == "Imagen" %}
+                <p class="text-center">Observa la imagen y selecciona la respuesta correcta:</p>
+                <div class="text-center">
+                    <img src="{{ archivo_prueba }}" alt="Imagen para la prueba" class="img-fluid my-3" style="max-height: 250px;">
+                </div>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="text-center">
+                    <p class="mb-3">Seleccione la respuesta correcta:</p>
+                    <div class="d-flex flex-wrap justify-content-center">
+                        {% for opcion in opciones_respuesta %}
+                            <button type="submit" name="respuesta_estudiante" value="{{ opcion }}" class="btn btn-primary m-2">{{ opcion|title }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </form>
+
+            {% if resultado %}
+            <div class="alert mt-4 {% if resultado == 'correcto' %}alert-success{% else %}alert-danger{% endif %}">
+                <strong class="text-center d-block">{{ mensaje_resultado }}</strong>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
